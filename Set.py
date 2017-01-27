@@ -100,12 +100,12 @@ class Set:
         :param other:
         :return: a new Set which is the difference of the two sets (the items in the left set that are not in the right set)
         """
-
-        for i in self.setList:
+        newList = self.setList
+        for i in newList
             if other.setList.contains(i):
-                other.setList.list.remove(i)
+                newList.remove(i)
 
-        return other
+        return Set(newList)
         pass
     # ------------------------------------------------------------------
 
