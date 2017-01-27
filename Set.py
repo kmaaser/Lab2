@@ -64,6 +64,7 @@ class Set:
         for i in self.setList:
             if not object.contains(i):
                 return False
+        return True
         pass
     # ------------------------------------------------------------------
 
