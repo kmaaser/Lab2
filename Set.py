@@ -84,8 +84,10 @@ class Set:
         :param other:
         :return: a new Set that is the union of the two sets
         """
-
-        other = self.setList + other.setList
+        other = other.setList
+        for i in self.setList:
+            if not self.setList.contains(i):
+                other += i
 
         return other
         pass
@@ -98,6 +100,13 @@ class Set:
         :param other:
         :return: a new Set which is the difference of the two sets (the items in the left set that are not in the right set)
         """
+
+        other = other.setList
+        other = self.setList
+        for i in self.setList:
+            if self.setList.contains(i):
+                other = other - i
+        return other
         pass
     # ------------------------------------------------------------------
 
