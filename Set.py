@@ -37,7 +37,7 @@ class Set:
     def contains(self, item):
         """
 
-        :param thing:
+        :param item:
         :return: returns True or False indicating if the parameter is in the set
         """
 
@@ -46,6 +46,8 @@ class Set:
             if i.item == item:
                 return True
         return False
+
+        pass
 
 
 
@@ -58,6 +60,10 @@ class Set:
         :param object: Set object
         :return: True if the set is a subset of the parameter set and false otherwise
         """
+
+        for i in self.setList:
+            if not object.contains(i):
+                return False
         pass
     # ------------------------------------------------------------------
 
