@@ -84,6 +84,10 @@ class Set:
         :param other:
         :return: a new Set that is the union of the two sets
         """
+
+        other = self.setList + other.setList
+
+        return other
         pass
     # ------------------------------------------------------------------
 
