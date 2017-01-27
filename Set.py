@@ -73,7 +73,8 @@ class Set:
 
         :return:
         """
-        pass
+
+        return len(self.setList)
     # ------------------------------------------------------------------
 
     def __add__(self, other):
