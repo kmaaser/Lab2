@@ -62,6 +62,7 @@ class Set:
         """
 
         for i in self.setList:
+            # checks to see if i is not contained
             if not object.contains(i):
                 return False
         return True
@@ -73,7 +74,7 @@ class Set:
 
         :return:
         """
-
+        # returns the length of the list
         return len(self.setList)
     # ------------------------------------------------------------------
 
@@ -86,7 +87,9 @@ class Set:
         """
 
         for i in self.setList:
+            # checks to see if i is in the other list
             if not other.setList.contains(i):
+                # if i is not in the other list, it is added to the other list
                 other.setList.append(i)
 
         return other
@@ -116,9 +119,9 @@ class Set:
         :param other:
         :return: True if the Sets are equal to each other and False if they are not
         """
-
-        for i in self.setList:
-            if self.setList == other.setList:
+        a = len(self.setList)
+        b = len(other.setList)
+        if a == b and self.setList.isSubsetOf(other.setList) and other.setList.isSubsetOf(self.setList):
                 return True
         return False
         pass
