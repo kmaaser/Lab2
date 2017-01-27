@@ -31,7 +31,7 @@ class Set:
         """ adds an item to the list in the set
         """
 
-        self.listOfSet.insert(item)
+        self.setList.insert(item)
     # ------------------------------------------------------------------
 
     def contains(self, thing):
