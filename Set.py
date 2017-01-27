@@ -34,14 +34,21 @@ class Set:
         self.setList.insert(item)
     # ------------------------------------------------------------------
 
-    def contains(self, thing):
+    def contains(self, item):
         """
 
         :param thing:
         :return: returns True or False indicating if the parameter is in the set
         """
 
-        pass
+        for i in self.setList:
+            # if i is in the set list
+            if i.item == item:
+                return True
+        return False
+
+
+
     # ------------------------------------------------------------------
 
     def isSubsetOf (self, object):
