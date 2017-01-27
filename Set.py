@@ -10,21 +10,20 @@ class Set:
 
     # ------------------------------------------------------------------
 
-    def __init__(self, aSet: list):
+    def __init__(self, setList):
 
         """
         pre: none
 
 
-        :param aSet: a list of items that are in the set
+        :param
         """
 
         """
         pre:
-        post: constructs aSet object with specified parameters"""
+        post: Sets list equal"""
 
-        self.set = aSet
-        self.listOfSet = ()
+        self.setList = setList
     # ------------------------------------------------------------------
 
     def insert(self, item):
