@@ -84,10 +84,10 @@ class Set:
         :param other:
         :return: a new Set that is the union of the two sets
         """
-        other = other.setList
+
         for i in self.setList:
-            if not self.setList.contains(i):
-                other += i
+            if not other.setList.contains(i):
+                other.setList += i
 
         return other
         pass
