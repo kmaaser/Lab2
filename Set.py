@@ -104,7 +104,7 @@ class Set:
         for i in self.setList:
             if self.setList.contains(i):
                 other.setList.list.remove(i)
-                
+
         return other
         pass
     # ------------------------------------------------------------------
