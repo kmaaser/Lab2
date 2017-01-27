@@ -87,7 +87,7 @@ class Set:
 
         for i in self.setList:
             if not other.setList.contains(i):
-                other.setList += i
+                other.setList.append(i)
 
         return other
         pass
