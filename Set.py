@@ -30,7 +30,7 @@ class Set:
 
         """ adds an item to the list in the set
         """
-
+        # adds an item to the list
         self.setList.insert(item)
     # ------------------------------------------------------------------
 
@@ -41,16 +41,13 @@ class Set:
         :return: returns True or False indicating if the parameter is in the set
         """
 
-        for i in self.setList:
-            # if i is in the set list
-            if i.item == item:
-                return True
+        # Check to see if the types are the same
+        if type(self.setList) == type(item):
+            for i in self.setList:
+                # if i is in the set list
+                if i.item == item:
+                    return True
         return False
-
-        pass
-
-
-
     # ------------------------------------------------------------------
 
     def isSubsetOf (self, object):
@@ -66,7 +63,6 @@ class Set:
             if not object.contains(i):
                 return False
         return True
-        pass
     # ------------------------------------------------------------------
 
     def __len__(self) -> int:
@@ -93,7 +89,6 @@ class Set:
                 other.setList.append(i)
 
         return other
-        pass
     # ------------------------------------------------------------------
 
     def __sub__(self, other):
@@ -109,7 +104,6 @@ class Set:
                 newList.remove(i)
 
         return Set(newList)
-        pass
     # ------------------------------------------------------------------
 
     def __eq__(self, other):
@@ -119,12 +113,15 @@ class Set:
         :param other:
         :return: True if the Sets are equal to each other and False if they are not
         """
+
+        # makes the lengths of the lists
         a = len(self.setList)
         b = len(other.setList)
+
+        # checks to see if the lengths and the sets are equal
         if a == b and self.setList.isSubsetOf(other.setList) and other.setList.isSubsetOf(self.setList):
                 return True
         return False
-        pass
     # ------------------------------------------------------------------
 
     def __ne__(self, other):
