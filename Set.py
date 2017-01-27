@@ -101,11 +101,10 @@ class Set:
         :return: a new Set which is the difference of the two sets (the items in the left set that are not in the right set)
         """
 
-        other = other.setList
-        other = self.setList
         for i in self.setList:
             if self.setList.contains(i):
-                other = other - i
+                other.setList.list.remove(i)
+                
         return other
         pass
     # ------------------------------------------------------------------
