@@ -101,7 +101,7 @@ class Set:
         :return: a new Set which is the difference of the two sets (the items in the left set that are not in the right set)
         """
         newList = self.setList
-        for i in newList
+        for i in newList:
             if other.setList.contains(i):
                 newList.remove(i)
 
@@ -116,6 +116,11 @@ class Set:
         :param other:
         :return: True if the Sets are equal to each other and False if they are not
         """
+
+        for i in self.setList:
+            if self.setList == other.setList:
+                return True
+        return False
         pass
     # ------------------------------------------------------------------
 
