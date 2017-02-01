@@ -1,16 +1,15 @@
-
 # ----------------------------------------------------------------------
 # Set.py
 # David Reed
 # Karenna Maaser
-# 1/23/2017
+# 2/1/2017
 # ----------------------------------------------------------------------
 
 class Set:
 
     # ------------------------------------------------------------------
 
-    def __init__(self, setList):
+    def __init__(self):
 
         """
         pre: none
@@ -23,7 +22,7 @@ class Set:
         pre:
         post: Sets list equal"""
 
-        self.setList = setList
+        self.setList = []
     # ------------------------------------------------------------------
 
     def insert(self, item):
@@ -31,7 +30,11 @@ class Set:
         """ adds an item to the list in the set
         """
         # adds an item to the list
-        self.setList.insert(item)
+        if item in self.setList:
+            pass
+        else:
+            self.setList.append(item)
+
     # ------------------------------------------------------------------
 
     def contains(self, item):
@@ -41,12 +44,9 @@ class Set:
         :return: returns True or False indicating if the parameter is in the set
         """
 
-        # Check to see if the types are the same
-        if type(self.setList) == type(item):
-            for i in self.setList:
-                # if i is in the set list
-                if i.item == item:
-                    return True
+        # checks to see if item is in list
+        if item in self.setList:
+            return True
         return False
     # ------------------------------------------------------------------
 
@@ -81,14 +81,14 @@ class Set:
         :param other:
         :return: a new Set that is the union of the two sets
         """
-
+        set = Set()
         for i in self.setList:
-            # checks to see if i is in the other list
-            if not other.setList.contains(i):
-                # if i is not in the other list, it is added to the other list
-                other.setList.append(i)
+            # inserts the items into the new set
+            set.insert(i)
+        for i in other.setList:
+            set.insert(i)
 
-        return other
+        return set
     # ------------------------------------------------------------------
 
     def __sub__(self, other):
@@ -98,12 +98,11 @@ class Set:
         :param other:
         :return: a new Set which is the difference of the two sets (the items in the left set that are not in the right set)
         """
-        newList = self.setList
-        for i in newList:
-            if other.setList.contains(i):
-                newList.remove(i)
-
-        return Set(newList)
+        set = Set()
+        for i in self.setList:
+            if not other.contains(i):
+                set.insert(i)
+        return set
     # ------------------------------------------------------------------
 
     def __eq__(self, other):
@@ -114,12 +113,9 @@ class Set:
         :return: True if the Sets are equal to each other and False if they are not
         """
 
-        # makes the lengths of the lists
-        a = len(self.setList)
-        b = len(other.setList)
 
         # checks to see if the lengths and the sets are equal
-        if a == b and self.setList.isSubsetOf(other.setList) and other.setList.isSubsetOf(self.setList):
+        if self.isSubsetOf(other) and other.isSubsetOf(self):
                 return True
         return False
     # ------------------------------------------------------------------
@@ -131,5 +127,7 @@ class Set:
         :param other:
         :return: True if the Sets are not equal and False if they are
         """
-        pass
+        if not self.isSubsetOf(other) and other.isSubsetOf(self):
+                return True
+        return False
     # ------------------------------------------------------------------
