@@ -21,7 +21,6 @@ class Set:
         """
         pre:
         post: Sets list equal"""
-
         self.setList = []
     # ------------------------------------------------------------------
 
@@ -29,10 +28,13 @@ class Set:
 
         """ adds an item to the list in the set
         """
-        # adds an item to the list
+
+        # checks to see if item is in the list
         if item in self.setList:
+            # if the item is in the list, nothing happens
             pass
         else:
+            # if the item is not in the list, it is added to the list
             self.setList.append(item)
 
     # ------------------------------------------------------------------
@@ -46,7 +48,9 @@ class Set:
 
         # checks to see if item is in list
         if item in self.setList:
+            # if item is in list it will return True
             return True
+        # if item is not in list, it will return False
         return False
     # ------------------------------------------------------------------
 
@@ -82,10 +86,14 @@ class Set:
         :return: a new Set that is the union of the two sets
         """
         set = Set()
+
+        # checks the first list
         for i in self.setList:
             # inserts the items into the new set
             set.insert(i)
+        # checks the second list
         for i in other.setList:
+            # inserts items into the new set
             set.insert(i)
 
         return set
@@ -98,8 +106,13 @@ class Set:
         :param other:
         :return: a new Set which is the difference of the two sets (the items in the left set that are not in the right set)
         """
+
+        # makes a new set
         set = Set()
+
+
         for i in self.setList:
+            # checks to see if i is in the other list
             if not other.contains(i):
                 set.insert(i)
         return set
@@ -113,10 +126,9 @@ class Set:
         :return: True if the Sets are equal to each other and False if they are not
         """
 
-
-        # checks to see if the lengths and the sets are equal
+        # checks to see if the they are subsets of each other
         if self.isSubsetOf(other) and other.isSubsetOf(self):
-                return True
+            return True
         return False
     # ------------------------------------------------------------------
 
@@ -127,7 +139,9 @@ class Set:
         :param other:
         :return: True if the Sets are not equal and False if they are
         """
-        if not self.isSubsetOf(other) and other.isSubsetOf(self):
-                return True
+
+        # checks to see if they are not subsets of each other
+        if not self.isSubsetOf(other) and not other.isSubsetOf(self):
+            return True
         return False
     # ------------------------------------------------------------------
